@@ -5,39 +5,51 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import os
-# إخفاء عناصر Streamlit غير المرغوبة
 st.markdown("""
 <style>
-    /* إخفاء أيقونة GitHub Fork */
-    .stActionButton {
+    /* إخفاء كل شيء في الهيدر */
+    [data-testid="stHeader"] {
         display: none !important;
     }
     
-    /* إخفاء زر Deploy */
-    .stDeployButton {
-        display: none !important;
-    }
-    
-    /* إخفاء القائمة الرئيسية */
-    #MainMenu {
-        visibility: hidden !important;
-    }
-    
-    /* إخفاء التذييل */
-    footer {
-        visibility: hidden !important;
-    }
-    
-    /* إخفاء أيقونة GitHub في الزاوية */
     .stApp > header {
         display: none !important;
     }
     
-    /* إخفاء شريط Streamlit العلوي بالكامل */
-    .stApp > div:first-child {
+    /* إخفاء جميع الأزرار */
+    button {
         display: none !important;
     }
+    
+    /* إخفاء أيقونة GitHub */
+    .stActionButton, .stDeployButton {
+        display: none !important;
+    }
+    
+    /* إخفاء القوائم */
+    #MainMenu, footer {
+        visibility: hidden !important;
+    }
 </style>
+""", unsafe_allow_html=True)
+
+# إضافة JavaScript لإخفاء العناصر
+st.markdown("""
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // إخفاء أي عنصر يحتوي على كلمة GitHub
+        const elements = document.querySelectorAll('*');
+        elements.forEach(el => {
+            if (el.innerHTML && el.innerHTML.includes('GitHub')) {
+                el.style.display = 'none';
+            }
+        });
+        
+        // إخفاء الهيدر
+        const header = document.querySelector('[data-testid="stHeader"]');
+        if (header) header.style.display = 'none';
+    });
+</script>
 """, unsafe_allow_html=True)
 # 🔒 نظام الحماية بكلمة مرور
 def check_password():
