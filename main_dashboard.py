@@ -95,16 +95,7 @@ def check_password():
                 help="اتصل بمدير النظام للحصول على كلمة المرور"
             )
             
-            st.markdown("""
-            <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; 
-                        border-left: 4px solid #2196f3; margin-top: 1rem;">
-                <h4 style="color: #1565c0; margin: 0 0 0.5rem 0;">📞 للوصول للنظام:</h4>
-                <p style="margin: 0; color: #1976d2;">
-                    اتصل بمدير النظام للحصول على كلمة المرور<br>
-                    أو راجع مدير تكنولوجيا المعلومات
-                </p>
-            </div>
-            """, unsafe_allow_html=True)
+         
         
         return False
     
