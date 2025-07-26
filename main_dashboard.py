@@ -1,10 +1,44 @@
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import os
-
+# إخفاء عناصر Streamlit غير المرغوبة
+st.markdown("""
+<style>
+    /* إخفاء أيقونة GitHub Fork */
+    .stActionButton {
+        display: none !important;
+    }
+    
+    /* إخفاء زر Deploy */
+    .stDeployButton {
+        display: none !important;
+    }
+    
+    /* إخفاء القائمة الرئيسية */
+    #MainMenu {
+        visibility: hidden !important;
+    }
+    
+    /* إخفاء التذييل */
+    footer {
+        visibility: hidden !important;
+    }
+    
+    /* إخفاء أيقونة GitHub في الزاوية */
+    .stApp > header {
+        display: none !important;
+    }
+    
+    /* إخفاء شريط Streamlit العلوي بالكامل */
+    .stApp > div:first-child {
+        display: none !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 # 🔒 نظام الحماية بكلمة مرور
 def check_password():
     """التحقق من كلمة المرور"""
